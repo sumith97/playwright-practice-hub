@@ -68,7 +68,7 @@ Waits & auto-waiting · Dynamic content (infinite scroll, polling) · Dropdowns 
 ### 🔴 Advanced — professional grade (14)
 Auth & sessions (JWT + MFA + `storageState`) · API testing (`request` fixture, full error matrix) · Mocking & HAR · WebSockets & SSE · Shadow DOM · Visual testing (masking, baselines) · Clock & timers (`page.clock`) · Storage & cookies · Emulation (geolocation, devices, locale, timezone) · A11y & aria snapshots · Flakiness clinic · Parallelism & sharding · Debugging & tracing · **Capstone: POM & custom fixtures** (a complete e-commerce shop).
 
-See [`docs/challenge-catalog.md`](docs/challenge-catalog.md) for the full table with links and [`docs/api-reference.md`](docs/api-reference.md) for endpoint details.
+See [`docs/challenge-catalog.md`](docs/challenge-catalog.md) for the full table with links, [`docs/api-reference.md`](docs/api-reference.md) for endpoint details, and [`docs/architecture.md`](docs/architecture.md) for Mermaid diagrams of the system.
 
 ## The practice API
 
