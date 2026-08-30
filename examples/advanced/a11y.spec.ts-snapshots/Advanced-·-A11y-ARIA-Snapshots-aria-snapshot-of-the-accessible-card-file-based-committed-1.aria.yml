@@ -1,0 +1,6 @@
+- heading "Newsletter signup (good a11y)" [level=3]
+- text: Email address
+- textbox "Email address":
+  - /placeholder: ada@example.com
+- button "Subscribe to newsletter"
+- status: Status announcements appear here.

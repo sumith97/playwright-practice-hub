@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Deep frame</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 0; padding: 10px; background: #fff7ed; }
+      strong { font-size: 0.9rem; }
+      input { padding: 4px 8px; border: 1px solid #d6b98c; border-radius: 6px; }
+      button { padding: 4px 10px; border: none; border-radius: 6px; background: #92400e; color: #fff; font-weight: 600; cursor: pointer; }
+      #deep-status { min-height: 1.2em; font-size: 0.85rem; color: #92400e; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <strong>Deep frame — second level (nested)</strong>
+    <div style="margin-top: 6px">
+      <input id="deep-input" placeholder="deep-secret" />
+      <button id="deep-save">Save deep value</button>
+    </div>
+    <p id="deep-status"></p>
+    <script>
+      document.getElementById('deep-save').addEventListener('click', () => {
+        const value = document.getElementById('deep-input').value;
+        document.getElementById('deep-status').textContent = value
+          ? 'Deep frame saved: "' + value + '"'
+          : 'Deep frame saved: (empty)';
+      });
+    </script>
+  </body>
+</html>
