@@ -34,6 +34,13 @@ test.describe('Intermediate · Files', () => {
   });
 
   test('downloads: filename suggestion and saved content', async ({ page }, testInfo) => {
+    // Playwright limitation: headless WebKit on Linux cannot produce downloads.
+    // They work on Chromium/Firefox everywhere and on WebKit on macOS/Windows.
+    test.skip(
+      testInfo.project.name === 'webkit' && process.platform === 'linux',
+      'headless WebKit on Linux does not support downloads',
+    );
+
     await page.goto('/intermediate/files');
 
     const pdfPromise = page.waitForEvent('download');
