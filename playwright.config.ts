@@ -18,10 +18,11 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   // Every run produces a browsable report:
   //  - local: list for the console + HTML report in playwright-report/ (auto-opens on failure)
+  //    + a machine-readable copy in test-history/last-run.json for the history dashboard
   //  - CI: PR annotations + per-shard blob reports (merged into one HTML report by the CI "report" job)
   reporter: process.env.CI
     ? [['github'], ['blob', { outputDir: 'blob-report' }]]
-    : [['list'], ['html', { open: 'on-failure' }]],
+    : [['list'], ['html', { open: 'on-failure' }], ['json', { outputFile: 'test-history/last-run.json' }]],
   timeout: 30_000,
   use: {
     baseURL: 'http://localhost:5173',

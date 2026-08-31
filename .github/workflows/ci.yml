@@ -50,12 +50,18 @@ jobs:
           path: test-results/
           retention-days: 7
 
-  # Merges every shard's blob report into ONE browsable HTML report and
-  # appends the totals to the run summary — runs even when tests fail.
+  # Merges every shard's blob report into ONE browsable HTML report, appends
+  # the totals to the run summary, and records the run into the `test-history`
+  # branch for the analysis dashboard — runs even when tests fail.
   report:
     needs: test
     if: always()
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: test-history
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -98,6 +104,40 @@ jobs:
             ].join("\n");
             require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
           '
+
+      - name: Record run into test history (test-history branch)
+        if: always()
+        run: |
+          if [ ! -f merged.json ]; then echo "no merged.json — skipping history"; exit 0; fi
+          node tools/test-history/collect.mjs merged.json --out run-record.json --source ci \
+            --run-id "${GITHUB_RUN_ID}" \
+            --run-url "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            --sha "${GITHUB_SHA}" \
+            --branch "${GITHUB_REF_NAME}" \
+            --event "${GITHUB_EVENT_NAME}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git fetch --depth=1 origin test-history 2>/dev/null; then
+            git show FETCH_HEAD:history.jsonl > history.jsonl 2>/dev/null || echo "" > history.jsonl
+            parent="$(git rev-parse FETCH_HEAD)"
+          else
+            echo "first CI run — creating test-history branch" > history.jsonl
+            parent=""
+          fi
+
+          node tools/test-history/cli.mjs append run-record.json
+
+          blob="$(git hash-object -w history.jsonl)"
+          tree="$(printf '100644 blob %s\thistory.jsonl\n' "$blob" | git mktree)"
+          if [ -n "$parent" ]; then
+            commit="$(git commit-tree "$tree" -p "$parent" -m "chore(test-history): run ${GITHUB_RUN_ID}")"
+          else
+            commit="$(git commit-tree "$tree" -m "chore(test-history): run ${GITHUB_RUN_ID}")"
+          fi
+          git push origin "$commit:refs/heads/test-history"
+          echo "history pushed to test-history branch"
 
       - name: Upload merged HTML report
         if: always()

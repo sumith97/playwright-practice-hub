@@ -15,7 +15,10 @@
     "typecheck": "tsc -p apps/web --noEmit",
     "test:examples": "playwright test --project=chromium",
     "test:examples:all": "playwright test",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "history:record": "node tools/test-history/cli.mjs record",
+    "history:sync": "node tools/test-history/cli.mjs sync",
+    "dashboard": "node tools/test-history/dashboard/server.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",

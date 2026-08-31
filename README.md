@@ -113,6 +113,24 @@ Turn on **Chaos Mode** (header toggle) to replay any challenge under injected la
 - **CI:** each of the 3 shards emits a blob report; a `report` job merges them into a single HTML report, uploaded as the `playwright-report` artifact on every run (even red ones) — download it from the run's **Artifacts** section and open with `npx playwright show-report <unzipped-folder>`. The run page also shows a results table (passed/failed/flaky/skipped + duration) in the job summary, and failures get inline PR annotations plus trace/video artifacts for debugging.
 - Failure traces and videos are always retained for 7 days; the merged report for 14.
 
+## Test history & analysis dashboard
+
+Every run — local and CI — can be recorded into an append-only history store, with a dashboard for trend analysis.
+
+```mermaid
+flowchart LR
+    T["playwright test"] -->|"json report<br/>(local: auto, CI: merge-reports)"| C["collect.mjs<br/>run record"]
+    C --> H["history.jsonl<br/>(local dir / test-history branch)"]
+    H --> D["📊 dashboard<br/>localhost:4310"]
+    B["test-history branch"] -.->|"history:sync"| H
+```
+
+- **Every local run** automatically writes `test-history/last-run.json`. Add it to the history with `npm run history:record` (or the dashboard button) — so throwaway debug runs don't pollute trends.
+- **Every CI run** is recorded automatically: the `report` job appends the run record to the `test-history` branch (dedup by run id, so re-runs don't duplicate).
+- **`npm run dashboard`** starts the analysis dashboard at http://localhost:4310 — pass-rate and duration trends, per-run outcomes, flakiest and slowest test rankings, and recent runs with links to the CI run. `Sync from CI` (or `npm run history:sync`) merges the branch history into your local store.
+
+Records are compact JSONL (totals + per-test rows), so the store is diff-friendly and scales to thousands of runs.
+
 ## License
 
 MIT — use it, fork it, teach with it.
