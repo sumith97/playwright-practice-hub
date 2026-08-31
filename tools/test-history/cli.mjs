@@ -89,22 +89,22 @@ function sync() {
   console.log(`synced: ${merged.length - before.length} new run(s) from origin/${HISTORY_BRANCH}, ${merged.length} total`);
 }
 
-function append(recordFile) {
+function append(recordFile, file) {
   if (!existsSync(recordFile)) {
     console.error(`no ${recordFile}`);
     process.exit(1);
   }
   const record = JSON.parse(readFileSync(recordFile, 'utf8'));
-  const merged = mergeRecords(readHistory(HISTORY_FILE), [record]);
-  writeHistory(HISTORY_FILE, merged);
+  const merged = mergeRecords(readHistory(file ?? HISTORY_FILE), [record]);
+  writeHistory(file ?? HISTORY_FILE, merged);
   console.log(`appended ${record.runId} — history now has ${merged.length} run(s)`);
 }
 
-const [cmd, arg] = process.argv.slice(2);
+const [cmd, arg, arg2] = process.argv.slice(2);
 if (cmd === 'record') record();
 else if (cmd === 'sync') sync();
-else if (cmd === 'append') append(resolve(arg ?? 'run-record.json'));
+else if (cmd === 'append') append(resolve(arg ?? 'run-record.json'), arg2 ? resolve(arg2) : undefined);
 else {
-  console.error('usage: node cli.mjs <record|sync|append [record.json]>');
+  console.error('usage: node cli.mjs <record|sync|append [record.json] [history.jsonl]>');
   process.exit(2);
 }

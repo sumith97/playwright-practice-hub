@@ -127,7 +127,8 @@ jobs:
             parent=""
           fi
 
-          node tools/test-history/cli.mjs append run-record.json
+          # append into the STAGING file at the repo root (the one git commits below)
+          node tools/test-history/cli.mjs append run-record.json history.jsonl
 
           blob="$(git hash-object -w history.jsonl)"
           tree="$(printf '100644 blob %s\thistory.jsonl\n' "$blob" | git mktree)"
