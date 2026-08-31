@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Run Analysis — Playwright Practice Hub</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>📊 Test Run Analysis</h1>
+      <span class="muted">Playwright Practice Hub — historical runs</span>
+      <div class="actions">
+        <label>branch <select id="branch-filter"><option value="">all</option></select></label>
+        <label>source <select id="source-filter">
+          <option value="">all</option>
+          <option value="ci">ci</option>
+          <option value="local">local</option>
+        </select></label>
+        <button id="btn-record" class="btn" title="Append test-history/last-run.json to the history store">Record local run</button>
+        <button id="btn-sync" class="btn" title="Merge CI history from the test-history branch">Sync from CI</button>
+      </div>
+    </header>
+
+    <p id="toast" class="toast hidden"></p>
+
+    <main>
+      <section id="empty-state" class="card empty hidden">
+        <h2>No runs recorded yet</h2>
+        <p>Run <code>npm run test:examples</code>, then click <strong>Record local run</strong> — or <strong>Sync from CI</strong> once a CI run has finished. Every recorded run lands in <code>test-history/history.jsonl</code>.</p>
+      </section>
+
+      <section id="kpis" class="kpi-row hidden">
+        <div class="card kpi"><span class="kpi-value" id="kpi-runs">–</span><span class="kpi-label">runs recorded</span></div>
+        <div class="card kpi"><span class="kpi-value" id="kpi-pass">–</span><span class="kpi-label">avg pass rate</span></div>
+        <div class="card kpi"><span class="kpi-value" id="kpi-duration">–</span><span class="kpi-label">avg duration</span></div>
+        <div class="card kpi"><span class="kpi-value" id="kpi-flaky">–</span><span class="kpi-label">flaky tests seen</span></div>
+      </section>
+
+      <section class="charts hidden" id="charts">
+        <div class="card chart-card">
+          <h2>Outcomes per run</h2>
+          <canvas id="chart-outcomes" height="230"></canvas>
+        </div>
+        <div class="card chart-card">
+          <h2>Pass rate &amp; duration</h2>
+          <canvas id="chart-trend" height="230"></canvas>
+        </div>
+      </section>
+
+      <section class="card hidden" id="runs-section">
+        <h2>Recent runs</h2>
+        <div class="table-scroll">
+          <table id="runs-table">
+            <thead>
+              <tr><th>When</th><th>Source</th><th>Branch</th><th>Commit</th><th>✅</th><th>❌</th><th>😵</th><th>⏭️</th><th>Duration</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <div class="card hidden" id="flaky-section">
+          <h2>Flakiest tests</h2>
+          <p class="muted small">Aggregated across all recorded runs — status "flaky" plus repeat failures.</p>
+          <table id="flaky-table">
+            <thead><tr><th>Test</th><th>Flaky</th><th>Failed</th><th>Pass rate</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card hidden" id="slow-section">
+          <h2>Slowest tests</h2>
+          <p class="muted small">Average duration across all recorded runs.</p>
+          <table id="slow-table">
+            <thead><tr><th>Test</th><th>Projects</th><th>Avg</th><th>Max</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

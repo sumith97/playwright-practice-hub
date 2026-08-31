@@ -3,7 +3,7 @@ dist/
 test-results/
 playwright-report/
 blob-report/
-test-history/
+/test-history/
 .playwright/
 *.log
 .env
