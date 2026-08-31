@@ -16,7 +16,12 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : [['list']],
+  // Every run produces a browsable report:
+  //  - local: list for the console + HTML report in playwright-report/ (auto-opens on failure)
+  //  - CI: PR annotations + per-shard blob reports (merged into one HTML report by the CI "report" job)
+  reporter: process.env.CI
+    ? [['github'], ['blob', { outputDir: 'blob-report' }]]
+    : [['list'], ['html', { open: 'on-failure' }]],
   timeout: 30_000,
   use: {
     baseURL: 'http://localhost:5173',

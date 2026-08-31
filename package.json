@@ -14,7 +14,8 @@
     "start:api": "npm run start -w apps/api",
     "typecheck": "tsc -p apps/web --noEmit",
     "test:examples": "playwright test --project=chromium",
-    "test:examples:all": "playwright test"
+    "test:examples:all": "playwright test",
+    "report": "playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",

@@ -103,6 +103,15 @@ Turn on **Chaos Mode** (header toggle) to replay any challenge under injected la
 | `npm run typecheck` | TS check of the web app |
 | `npm run test:examples` | reference suite, Chromium |
 | `npm run test:examples:all` | reference suite, all three engines |
+| `npm run report` | browse the latest HTML report at localhost:9323 |
+
+## Reports
+
+**Every run produces a report.**
+
+- **Local:** each test run writes an interactive HTML report to `playwright-report/` (it auto-opens in your browser only when something fails). View the latest one any time with `npm run report`.
+- **CI:** each of the 3 shards emits a blob report; a `report` job merges them into a single HTML report, uploaded as the `playwright-report` artifact on every run (even red ones) — download it from the run's **Artifacts** section and open with `npx playwright show-report <unzipped-folder>`. The run page also shows a results table (passed/failed/flaky/skipped + duration) in the job summary, and failures get inline PR annotations plus trace/video artifacts for debugging.
+- Failure traces and videos are always retained for 7 days; the merged report for 14.
 
 ## License
 
