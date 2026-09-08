@@ -45,9 +45,17 @@ export default defineConfig({
     },
   ],
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    // authenticates once and saves examples/expert/.auth/user.json — the
+    // 'chromium' project depends on it (the canonical setup-project pattern)
+    { name: 'setup', testMatch: /auth\.setup\.ts/, use: { ...devices['Desktop Chrome'] } },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup'],
+      testIgnore: /auth\.setup\.ts/,
+    },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] }, testIgnore: /auth\.setup\.ts/ },
     // WebKit's device descriptor is named "Desktop Safari" in Playwright's registry
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] }, testIgnore: /auth\.setup\.ts/ },
   ],
 });

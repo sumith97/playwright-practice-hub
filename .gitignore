@@ -4,6 +4,7 @@ test-results/
 playwright-report/
 blob-report/
 /test-history/
+examples/expert/.auth/
 .playwright/
 *.log
 .env

@@ -5,7 +5,7 @@ import { TRACK_LABELS, type Track } from '../lib/types';
 import { useProgress } from '../lib/progress';
 
 function isTrack(value: string | undefined): value is Track {
-  return value === 'basics' || value === 'intermediate' || value === 'advanced';
+  return value === 'basics' || value === 'intermediate' || value === 'advanced' || value === 'expert';
 }
 
 function ChallengeCard({ id }: { id: string }) {
@@ -79,7 +79,7 @@ export function Home() {
         </div>
       </div>
 
-      {(['basics', 'intermediate', 'advanced'] as Track[]).map((track) => (
+      {(['basics', 'intermediate', 'advanced', 'expert'] as Track[]).map((track) => (
         <section className="track-section" key={track} aria-label={`${TRACK_LABELS[track]} track`}>
           <div className="track-head">
             <span className={`badge ${track}`}>{TRACK_LABELS[track]}</span>

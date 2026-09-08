@@ -18,6 +18,7 @@ export function Header() {
           <NavLink to="/track/basics">Basics</NavLink>
           <NavLink to="/track/intermediate">Intermediate</NavLink>
           <NavLink to="/track/advanced">Advanced</NavLink>
+          <NavLink to="/track/expert">Expert</NavLink>
           <NavLink to="/shop">Shop</NavLink>
           <NavLink to="/api-docs">API Docs</NavLink>
         </nav>

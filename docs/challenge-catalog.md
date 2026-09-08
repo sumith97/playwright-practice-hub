@@ -1,6 +1,6 @@
 # Challenge catalog
 
-All 32 challenges, their routes, and the Playwright concepts they exercise.
+All 39 challenges, their routes, and the Playwright concepts they exercise.
 Reference tests live in `examples/` at the path shown in each challenge page.
 
 ## Basic track — foundations
@@ -50,6 +50,18 @@ Reference tests live in `examples/` at the path shown in each challenge page.
 | 31 | Debugging & Tracing | `/advanced/debugging` | trace viewer, soft assertions, failure artifacts, retry loops | `examples/advanced/debugging.spec.ts` |
 | 32 | Capstone: POM & Fixtures | `/shop` | Page Object Model, custom fixtures, API-seeded sessions, shop E2E | `examples/shop/capstone.spec.ts` |
 
+## Expert track — modern Playwright
+
+| # | Challenge | Route | Concepts | Reference test |
+|---|---|---|---|---|
+| 33 | Setup Project & storageState | `/expert/setup-auth` | setup projects, project dependencies, storageState file, testIgnore | `examples/expert/setup-auth.spec.ts` (+ `auth.setup.ts`) |
+| 34 | HAR Record & Replay | `/expert/har` | routeFromHAR, recordHar, updateMode, setOffline | `examples/expert/har.spec.ts` |
+| 35 | Overlay Clinic | `/expert/locator-handler` | addLocatorHandler, actionability interception, times option | `examples/expert/locator-handler.spec.ts` |
+| 36 | Console & Page-Error Monitoring | `/expert/error-monitor` | page.on('pageerror'/'console'), auto fixtures, error policy | `examples/expert/error-monitor.spec.ts` |
+| 37 | Steps, Attachments & Tracing | `/expert/steps-attachments` | test.step, testInfo.attach, context.tracing | `examples/expert/steps-attachments.spec.ts` |
+| 38 | Network Surgery | `/expert/network-surgery` | route.fetch + fulfill patching, { times }, route.fallback, LIFO | `examples/expert/network-surgery.spec.ts` |
+| 39 | Worker-Scoped Fixtures | `/expert/worker-fixtures` | test.extend, scope:'worker', auto fixtures, workerIndex | `examples/expert/worker-fixtures.spec.ts` |
+
 ## Concept coverage map
 
 | Playwright docs area | Challenges |
@@ -69,6 +81,9 @@ Reference tests live in `examples/` at the path shown in each challenge page.
 | Device/permission emulation | 27 |
 | Accessibility | 28 |
 | Parallelism & sharding | 30 |
-| Fixtures & POM | 32 |
-| Debugging & tracing | 31 |
-| Flakiness & retries | 7, 29, 31 (+ Chaos Mode anywhere) |
+| Fixtures & POM | 32, 39 |
+| Debugging & tracing | 31, 37 |
+| Flakiness & retries | 7, 29, 31, 35 (+ Chaos Mode anywhere) |
+| Setup projects & auth architecture | 19, 33 |
+| HAR | 21, 34 |
+| Modern assertions & locators | 4, 28, 38 |

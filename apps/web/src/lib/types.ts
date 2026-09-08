@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 
-export type Track = 'basics' | 'intermediate' | 'advanced';
+export type Track = 'basics' | 'intermediate' | 'advanced' | 'expert';
 
 export interface ChallengeMeta {
   /** Stable id, used for progress tracking, e.g. 'locator-gym'. */
@@ -27,6 +27,7 @@ export const TRACK_LABELS: Record<Track, string> = {
   basics: 'Basic',
   intermediate: 'Intermediate',
   advanced: 'Advanced',
+  expert: 'Expert',
 };
 
 export function formatPrice(cents: number): string {

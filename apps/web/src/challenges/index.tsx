@@ -35,6 +35,14 @@ import Parallelism, { meta as m30 } from './advanced/Parallelism';
 import Debugging, { meta as m31 } from './advanced/Debugging';
 import Shop, { meta as m32 } from './advanced/Shop';
 
+import SetupAuth, { meta as e01 } from './expert/SetupAuth';
+import HarReplay, { meta as e02 } from './expert/HarReplay';
+import LocatorHandler, { meta as e03 } from './expert/LocatorHandler';
+import ErrorMonitor, { meta as e04 } from './expert/ErrorMonitor';
+import StepsAttachments, { meta as e05 } from './expert/StepsAttachments';
+import NetworkSurgery, { meta as e06 } from './expert/NetworkSurgery';
+import WorkerFixtures, { meta as e07 } from './expert/WorkerFixtures';
+
 export const CHALLENGES: ChallengeMeta[] = [
   { ...m01, component: LocatorGym },
   { ...m02, component: ActionsPlayground },
@@ -70,6 +78,14 @@ export const CHALLENGES: ChallengeMeta[] = [
   { ...m30, component: Parallelism },
   { ...m31, component: Debugging },
   { ...m32, component: Shop },
+
+  { ...e01, component: SetupAuth },
+  { ...e02, component: HarReplay },
+  { ...e03, component: LocatorHandler },
+  { ...e04, component: ErrorMonitor },
+  { ...e05, component: StepsAttachments },
+  { ...e06, component: NetworkSurgery },
+  { ...e07, component: WorkerFixtures },
 ];
 
 export const CHALLENGE_COUNT = CHALLENGES.length;
