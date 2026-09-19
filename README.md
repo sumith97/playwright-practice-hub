@@ -1,5 +1,8 @@
 # 🎭 Playwright Practice Hub
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/sumith97/playwright-practice-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/sumith97/playwright-practice-hub/actions/workflows/ci.yml)
+
 A deliberately testable, full-stack web application where **Test Automation Engineers practice Playwright** against a realistic target — from your first `getByRole` to WebSocket frames, `storageState` sessions, `page.clock` time travel and Page Object architecture.
 
 Every challenge page states the task, lists the Playwright concepts it teaches, gives progressive hints, and links to a **runnable reference test** in [`examples/`](examples/). The reference suite runs against the app on every change — that is what keeps every challenge provably solvable.
@@ -134,6 +137,10 @@ flowchart LR
 
 Records are compact JSONL (totals + per-test rows), so the store is diff-friendly and scales to thousands of runs.
 
+## Contributing
+
+Broken challenge? Missing concept? PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for the setup guide and the one hard rule: **every challenge ships with a green reference test.**
+
 ## License
 
-MIT — use it, fork it, teach with it.
+[MIT](LICENSE) — use it, fork it, teach with it.

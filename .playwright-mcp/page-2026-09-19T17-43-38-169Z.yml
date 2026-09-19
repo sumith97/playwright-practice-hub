@@ -1,0 +1,81 @@
+- generic [ref=f5e2]:
+  - banner [ref=f5e3]:
+    - generic [ref=f5e4]:
+      - link "Playwright Practice Hub" [ref=f5e5] [cursor=pointer]:
+        - /url: /
+        - generic [aria-hidden] [ref=f5e6]: 🎭
+      - navigation "Main navigation" [ref=f5e8]:
+        - link "Home" [ref=f5e9] [cursor=pointer]:
+          - /url: /
+        - link "Basics" [ref=f5e10] [cursor=pointer]:
+          - /url: /track/basics
+        - link "Intermediate" [ref=f5e11] [cursor=pointer]:
+          - /url: /track/intermediate
+        - link "Advanced" [ref=f5e12] [cursor=pointer]:
+          - /url: /track/advanced
+        - link "Expert" [ref=f5e13] [cursor=pointer]:
+          - /url: /track/expert
+        - link "Shop" [ref=f5e14] [cursor=pointer]:
+          - /url: /shop
+        - link "API Docs" [ref=f5e15] [cursor=pointer]:
+          - /url: /api-docs
+      - generic [ref=f5e16]:
+        - generic [ref=f5e17] [cursor=pointer]:
+          - switch "Chaos mode" [checked] [ref=f5e18]
+          - text: Chaos mode
+        - 'generic "Progress: 0 of 39 challenges completed" [ref=f5e19]': 0/39 done
+  - main [ref=f5e20]:
+    - article [ref=f5e21]:
+      - paragraph [ref=f5e22]:
+        - link "Home" [ref=f5e23] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Advanced" [ref=f5e24] [cursor=pointer]:
+          - /url: /track/advanced
+        - text: / WebSockets & SSE
+      - generic [ref=f5e25]:
+        - heading "WebSockets & SSE" [level=1] [ref=f5e26]
+        - generic [ref=f5e27]: Advanced
+      - generic [ref=f5e28]:
+        - generic [ref=f5e29]: waitForEvent("websocket")
+        - generic [ref=f5e30]: socket.on("framereceived")
+        - generic [ref=f5e31]: EventSource streams
+        - generic [ref=f5e32]: event-driven assertions
+      - region "Your task" [ref=f5e33]:
+        - heading "🎯 Your task" [level=2] [ref=f5e34]
+        - paragraph [ref=f5e35]: "Event-driven UI — two transports, two approaches: 1. The chat connects to a WebSocket (ws://…/ws/chat). Send a message; your message is echoed back with a timestamp. Assert the echo appears in the log. 2. System messages announce new connections — assert the welcome line. 3. Watch the SSE stock ticker below — it ticks roughly every second. Assert the price CHANGES and the update counter grows. 4. Deep dive: capture the socket in your test with page.waitForEvent(\"websocket\"), then assert on frames (ws.on(\"framereceived\"))."
+      - region "Hints" [ref=f5e36]:
+        - heading "💡 Hints" [level=2] [ref=f5e37]
+        - group [ref=f5e38]:
+          - generic "Hint 1" [ref=f5e39] [cursor=pointer]
+        - group [ref=f5e40]:
+          - generic "Hint 2" [ref=f5e41] [cursor=pointer]
+        - group [ref=f5e42]:
+          - generic "Hint 3" [ref=f5e43] [cursor=pointer]
+      - region "Reference solution" [ref=f5e44]:
+        - heading "✅ Reference solution" [level=2] [ref=f5e45]
+        - group [ref=f5e46]:
+          - generic "Reveal solution & reference test" [ref=f5e47] [cursor=pointer]
+      - button "Mark challenge as complete" [ref=f5e48] [cursor=pointer]
+      - region "Playground" [ref=f5e49]:
+        - heading "🧪 Playground" [level=2] [ref=f5e50]
+        - generic [ref=f5e51]:
+          - generic [ref=f5e52]:
+            - heading "WebSocket chat connecting…" [level=3] [ref=f5e53]:
+              - text: WebSocket chat
+              - generic [ref=f5e54]: connecting…
+            - generic [ref=f5e56]:
+              - generic [ref=f5e57]: Nickname
+              - textbox "Nickname" [ref=f5e58]: tester
+              - textbox "Chat message" [ref=f5e59]:
+                - /placeholder: Type a message…
+              - button "Send" [disabled] [ref=f5e60]
+          - generic [ref=f5e61]:
+            - heading "SSE stock ticker" [level=3] [ref=f5e62]
+            - paragraph [ref=f5e63]: PWL Industries — streaming via Server-Sent Events
+            - paragraph [ref=f5e64]: …
+            - paragraph [ref=f5e65]:
+              - text: "Ticks received:"
+              - strong [ref=f5e66]: "0"
+  - contentinfo [ref=f5e67]: Playwright Practice Hub — a deliberately testable app for Test Automation Engineers. Challenges stay solvable because every one ships with a reference test that runs in CI.
+  - status

@@ -1,0 +1,89 @@
+- generic [ref=f4e2]:
+  - banner [ref=f4e3]:
+    - generic [ref=f4e4]:
+      - link "Playwright Practice Hub" [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - generic [aria-hidden] [ref=f4e6]: 🎭
+      - navigation "Main navigation" [ref=f4e8]:
+        - link "Home" [ref=f4e9] [cursor=pointer]:
+          - /url: /
+        - link "Basics" [ref=f4e10] [cursor=pointer]:
+          - /url: /track/basics
+        - link "Intermediate" [ref=f4e11] [cursor=pointer]:
+          - /url: /track/intermediate
+        - link "Advanced" [ref=f4e12] [cursor=pointer]:
+          - /url: /track/advanced
+        - link "Expert" [ref=f4e13] [cursor=pointer]:
+          - /url: /track/expert
+        - link "Shop" [ref=f4e14] [cursor=pointer]:
+          - /url: /shop
+        - link "API Docs" [ref=f4e15] [cursor=pointer]:
+          - /url: /api-docs
+      - generic [ref=f4e16]:
+        - generic [ref=f4e17] [cursor=pointer]:
+          - switch "Chaos mode" [checked] [ref=f4e18]
+          - text: Chaos mode
+        - 'generic "Progress: 0 of 39 challenges completed" [ref=f4e19]': 0/39 done
+  - main [ref=f4e20]:
+    - article [ref=f4e21]:
+      - paragraph [ref=f4e22]:
+        - link "Home" [ref=f4e23] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Expert" [ref=f4e24] [cursor=pointer]:
+          - /url: /track/expert
+        - text: / Overlay Clinic (addLocatorHandler)
+      - generic [ref=f4e25]:
+        - heading "Overlay Clinic (addLocatorHandler)" [level=1] [ref=f4e26]
+        - generic [ref=f4e27]: Expert
+      - generic [ref=f4e28]:
+        - generic [ref=f4e29]: addLocatorHandler
+        - generic [ref=f4e30]: actionability interception
+        - generic [ref=f4e31]: auto-retry after handler
+        - generic [ref=f4e32]: times option
+      - region "Your task" [ref=f4e33]:
+        - heading "🎯 Your task" [level=2] [ref=f4e34]
+        - paragraph [ref=f4e35]: "Kill the classic \"a popup swallowed my click\" flake — declaratively: A promotional overlay pops up on this page on its own schedule and blocks every click until dismissed (this is what cookie walls, notification permission prompts and \"loading\" spinners feel like in real apps). 1. First, feel the pain: write a test that clicks the four \"Add to cart\" buttons WITHOUT any special handling — it times out whenever the overlay is up. 2. Fix it with ONE registration before acting: page.addLocatorHandler(page.getByTestId('promo-overlay'), dismissIt). Playwright now auto-dismisses the overlay whenever it intercepts an action, then retries the click. 3. Assert all four products end up in the cart, and that the overlay was dismissed at least once along the way (the counter increments on every close)."
+      - region "Hints" [ref=f4e36]:
+        - heading "💡 Hints" [level=2] [ref=f4e37]
+        - group [ref=f4e38]:
+          - generic "Hint 1" [ref=f4e39] [cursor=pointer]
+        - group [ref=f4e40]:
+          - generic "Hint 2" [ref=f4e41] [cursor=pointer]
+        - group [ref=f4e42]:
+          - generic "Hint 3" [ref=f4e43] [cursor=pointer]
+        - group [ref=f4e44]:
+          - generic "Hint 4" [ref=f4e45] [cursor=pointer]
+      - region "Reference solution" [ref=f4e46]:
+        - heading "✅ Reference solution" [level=2] [ref=f4e47]
+        - group [ref=f4e48]:
+          - generic "Reveal solution & reference test" [ref=f4e49] [cursor=pointer]
+      - button "Mark challenge as complete" [ref=f4e50] [cursor=pointer]
+      - region "Playground" [ref=f4e51]:
+        - heading "🧪 Playground" [level=2] [ref=f4e52]
+        - generic [ref=f4e54]:
+          - heading "Products" [level=3] [ref=f4e55]
+          - paragraph [ref=f4e56]:
+            - text: "Cart:"
+            - strong [ref=f4e57]: "0"
+            - text: item(s)
+          - generic [ref=f4e58]:
+            - generic [ref=f4e59]:
+              - generic [aria-hidden] [ref=f4e60]: 🧯
+              - heading "Flake Extinguisher" [level=4] [ref=f4e61]
+              - button "Add to cart" [ref=f4e62] [cursor=pointer]
+            - generic [ref=f4e63]:
+              - generic [aria-hidden] [ref=f4e64]: 🪝
+              - heading "Hook of Retries" [level=4] [ref=f4e65]
+              - button "Add to cart" [ref=f4e66] [cursor=pointer]
+            - generic [ref=f4e67]:
+              - generic [aria-hidden] [ref=f4e68]: 🛡️
+              - heading "Strict-Mode Shield" [level=4] [ref=f4e69]
+              - button "Add to cart" [ref=f4e70] [cursor=pointer]
+            - generic [ref=f4e71]:
+              - generic [aria-hidden] [ref=f4e72]: 🔭
+              - heading "Trace Telescope" [level=4] [ref=f4e73]
+              - button "Add to cart" [ref=f4e74] [cursor=pointer]
+          - paragraph [ref=f4e75]: Overlay dismissed 0 time(s) this session.
+  - contentinfo [ref=f4e76]: Playwright Practice Hub — a deliberately testable app for Test Automation Engineers. Challenges stay solvable because every one ships with a reference test that runs in CI.
+  - status

@@ -1,0 +1,88 @@
+- generic [ref=f6e2]:
+  - banner [ref=f6e3]:
+    - generic [ref=f6e4]:
+      - link "Playwright Practice Hub" [ref=f6e5] [cursor=pointer]:
+        - /url: /
+        - generic [aria-hidden] [ref=f6e6]: 🎭
+      - navigation "Main navigation" [ref=f6e8]:
+        - link "Home" [ref=f6e9] [cursor=pointer]:
+          - /url: /
+        - link "Basics" [ref=f6e10] [cursor=pointer]:
+          - /url: /track/basics
+        - link "Intermediate" [ref=f6e11] [cursor=pointer]:
+          - /url: /track/intermediate
+        - link "Advanced" [ref=f6e12] [cursor=pointer]:
+          - /url: /track/advanced
+        - link "Expert" [ref=f6e13] [cursor=pointer]:
+          - /url: /track/expert
+        - link "Shop" [ref=f6e14] [cursor=pointer]:
+          - /url: /shop
+        - link "API Docs" [ref=f6e15] [cursor=pointer]:
+          - /url: /api-docs
+      - generic [ref=f6e16]:
+        - generic [ref=f6e17] [cursor=pointer]:
+          - switch "Chaos mode" [checked] [ref=f6e18]
+          - text: Chaos mode
+        - 'generic "Progress: 0 of 39 challenges completed" [ref=f6e19]': 0/39 done
+  - main [ref=f6e20]:
+    - article [ref=f6e21]:
+      - paragraph [ref=f6e22]:
+        - link "Home" [ref=f6e23] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Advanced" [ref=f6e24] [cursor=pointer]:
+          - /url: /track/advanced
+        - text: "/ Capstone: POM & Custom Fixtures"
+      - generic [ref=f6e25]:
+        - 'heading "Capstone: POM & Custom Fixtures" [level=1] [ref=f6e26]'
+        - generic [ref=f6e27]: Advanced
+      - generic [ref=f6e28]:
+        - generic [ref=f6e29]: Page Object Model
+        - generic [ref=f6e30]: custom fixtures
+        - generic [ref=f6e31]: api login + storageState
+        - generic [ref=f6e32]: parallel-safe cart data
+        - generic [ref=f6e33]: role-based UI
+      - region "Your task" [ref=f6e34]:
+        - heading "🎯 Your task" [level=2] [ref=f6e35]
+        - paragraph [ref=f6e36]: "The capstone: a complete e-commerce flow that deserves a real test architecture. 1. Explore: log in (standard@demo.io / secret123), browse the catalog, add products, adjust quantities, check out, and view the order under \"Orders\". 2. Watch the traps: eight \"Add to cart\" buttons on one page (strict mode!), formatted prices ($12.00 — regex!), loading skeletons, toasts, role-protected admin page. 3. Architecture goal: build Page Objects (LoginPage, CatalogPage, CartPage, CheckoutPage) and a custom authedUser fixture that logs in via API and injects the session — then write the end-to-end purchase test. 4. Extra credit: make the suite parallel-safe with unique products, and cover the admin 403 path."
+      - region "Hints" [ref=f6e37]:
+        - heading "💡 Hints" [level=2] [ref=f6e38]
+        - group [ref=f6e39]:
+          - generic "Hint 1" [ref=f6e40] [cursor=pointer]
+        - group [ref=f6e41]:
+          - generic "Hint 2" [ref=f6e42] [cursor=pointer]
+        - group [ref=f6e43]:
+          - generic "Hint 3" [ref=f6e44] [cursor=pointer]
+        - group [ref=f6e45]:
+          - generic "Hint 4" [ref=f6e46] [cursor=pointer]
+      - region "Reference solution" [ref=f6e47]:
+        - heading "✅ Reference solution" [level=2] [ref=f6e48]
+        - group [ref=f6e49]:
+          - generic "Reveal solution & reference test" [ref=f6e50] [cursor=pointer]
+      - button "Mark challenge as complete" [ref=f6e51] [cursor=pointer]
+      - region "Playground" [ref=f6e52]:
+        - heading "🧪 Playground" [level=2] [ref=f6e53]
+        - navigation "Shop navigation" [ref=f6e54]:
+          - link "Catalog" [ref=f6e55] [cursor=pointer]:
+            - /url: /shop
+          - link "Cart 0" [ref=f6e56] [cursor=pointer]:
+            - /url: /shop/cart
+          - link "Orders" [ref=f6e57] [cursor=pointer]:
+            - /url: /shop/orders
+          - link "Admin" [ref=f6e58] [cursor=pointer]:
+            - /url: /shop/admin
+          - generic [ref=f6e59]:
+            - generic [ref=f6e60]:
+              - text: Sam Standard
+              - generic [ref=f6e61]: user
+            - button "Log out" [ref=f6e62] [cursor=pointer]
+        - generic [ref=f6e63]:
+          - heading "Admin area" [level=2] [ref=f6e64]
+          - generic [ref=f6e65]:
+            - alert [ref=f6e66]: "🚫 Forbidden: admin role required (you are \"user\")"
+            - paragraph [ref=f6e67]:
+              - text: This is the graceful 403/401 path — log in as
+              - code [ref=f6e68]: admin@demo.io
+              - text: to see the metrics.
+  - contentinfo [ref=f6e69]: Playwright Practice Hub — a deliberately testable app for Test Automation Engineers. Challenges stay solvable because every one ships with a reference test that runs in CI.
+  - status

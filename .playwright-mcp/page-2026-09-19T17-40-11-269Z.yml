@@ -1,0 +1,144 @@
+- generic [ref=f3e2]:
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "Playwright Practice Hub" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - generic [aria-hidden] [ref=f3e6]: 🎭
+      - navigation "Main navigation" [ref=f3e8]:
+        - link "Home" [ref=f3e9] [cursor=pointer]:
+          - /url: /
+        - link "Basics" [ref=f3e10] [cursor=pointer]:
+          - /url: /track/basics
+        - link "Intermediate" [ref=f3e11] [cursor=pointer]:
+          - /url: /track/intermediate
+        - link "Advanced" [ref=f3e12] [cursor=pointer]:
+          - /url: /track/advanced
+        - link "Expert" [ref=f3e13] [cursor=pointer]:
+          - /url: /track/expert
+        - link "Shop" [ref=f3e14] [cursor=pointer]:
+          - /url: /shop
+        - link "API Docs" [ref=f3e15] [cursor=pointer]:
+          - /url: /api-docs
+      - generic [ref=f3e16]:
+        - generic [ref=f3e17] [cursor=pointer]:
+          - switch "Chaos mode" [checked] [ref=f3e18]
+          - text: Chaos mode
+        - 'generic "Progress: 0 of 39 challenges completed" [ref=f3e19]': 0/39 done
+  - main [ref=f3e20]:
+    - article [ref=f3e21]:
+      - paragraph [ref=f3e22]:
+        - link "Home" [ref=f3e23] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Advanced" [ref=f3e24] [cursor=pointer]:
+          - /url: /track/advanced
+        - text: "/ Capstone: POM & Custom Fixtures"
+      - generic [ref=f3e25]:
+        - 'heading "Capstone: POM & Custom Fixtures" [level=1] [ref=f3e26]'
+        - generic [ref=f3e27]: Advanced
+      - generic [ref=f3e28]:
+        - generic [ref=f3e29]: Page Object Model
+        - generic [ref=f3e30]: custom fixtures
+        - generic [ref=f3e31]: api login + storageState
+        - generic [ref=f3e32]: parallel-safe cart data
+        - generic [ref=f3e33]: role-based UI
+      - region "Your task" [ref=f3e34]:
+        - heading "🎯 Your task" [level=2] [ref=f3e35]
+        - paragraph [ref=f3e36]: "The capstone: a complete e-commerce flow that deserves a real test architecture. 1. Explore: log in (standard@demo.io / secret123), browse the catalog, add products, adjust quantities, check out, and view the order under \"Orders\". 2. Watch the traps: eight \"Add to cart\" buttons on one page (strict mode!), formatted prices ($12.00 — regex!), loading skeletons, toasts, role-protected admin page. 3. Architecture goal: build Page Objects (LoginPage, CatalogPage, CartPage, CheckoutPage) and a custom authedUser fixture that logs in via API and injects the session — then write the end-to-end purchase test. 4. Extra credit: make the suite parallel-safe with unique products, and cover the admin 403 path."
+      - region "Hints" [ref=f3e37]:
+        - heading "💡 Hints" [level=2] [ref=f3e38]
+        - group [ref=f3e39]:
+          - generic "Hint 1" [ref=f3e40] [cursor=pointer]
+        - group [ref=f3e41]:
+          - generic "Hint 2" [ref=f3e42] [cursor=pointer]
+        - group [ref=f3e43]:
+          - generic "Hint 3" [ref=f3e44] [cursor=pointer]
+        - group [ref=f3e45]:
+          - generic "Hint 4" [ref=f3e46] [cursor=pointer]
+      - region "Reference solution" [ref=f3e47]:
+        - heading "✅ Reference solution" [level=2] [ref=f3e48]
+        - group [ref=f3e49]:
+          - generic "Reveal solution & reference test" [ref=f3e50] [cursor=pointer]
+      - button "Mark challenge as complete" [ref=f3e51] [cursor=pointer]
+      - region "Playground" [ref=f3e52]:
+        - heading "🧪 Playground" [level=2] [ref=f3e53]
+        - navigation "Shop navigation" [ref=f3e54]:
+          - link "Catalog" [ref=f3e55] [cursor=pointer]:
+            - /url: /shop
+          - link "Cart 1" [ref=f3e161] [cursor=pointer]:
+            - /url: /shop/cart
+          - link "Orders" [ref=f3e57] [cursor=pointer]:
+            - /url: /shop/orders
+          - link "Admin" [ref=f3e58] [cursor=pointer]:
+            - /url: /shop/admin
+          - generic [ref=f3e59]:
+            - generic [ref=f3e98]:
+              - text: Sam Standard
+              - generic [ref=f3e99]: user
+            - button "Log out" [ref=f3e100] [cursor=pointer]
+        - generic [ref=f3e101]:
+          - generic [ref=f3e102]:
+            - generic [ref=f3e103]:
+              - generic [ref=f3e104]: Search products
+              - searchbox "Search products" [ref=f3e105]
+            - generic [ref=f3e106]:
+              - generic [ref=f3e107]: Category
+              - combobox "Category" [ref=f3e108]:
+                - option "All categories" [selected]
+                - option "tools"
+                - option "plushies"
+                - option "toys"
+                - option "apparel"
+            - paragraph [ref=f3e109]: 8 product(s)
+          - generic [ref=f3e110]:
+            - generic [ref=f3e111]:
+              - generic [aria-hidden] [ref=f3e112]: 🔍
+              - heading "Locator Lens" [level=3] [ref=f3e113]
+              - paragraph [aria-hidden] [ref=f3e114]: Locator Lens — tools
+              - paragraph [ref=f3e115]: $12.00
+              - button "Add to cart" [active] [ref=f3e116] [cursor=pointer]
+            - generic [ref=f3e117]:
+              - generic [aria-hidden] [ref=f3e118]: 🦉
+              - heading "Assertion Owl" [level=3] [ref=f3e119]
+              - paragraph [aria-hidden] [ref=f3e120]: Assertion Owl — plushies
+              - paragraph [ref=f3e121]: $24.50
+              - button "Add to cart" [ref=f3e122] [cursor=pointer]
+            - generic [ref=f3e123]:
+              - generic [aria-hidden] [ref=f3e124]: 🦊
+              - heading "Fixture Fox" [level=3] [ref=f3e125]
+              - paragraph [aria-hidden] [ref=f3e126]: Fixture Fox — plushies
+              - paragraph [ref=f3e127]: $18.99
+              - button "Add to cart" [ref=f3e128] [cursor=pointer]
+            - generic [ref=f3e129]:
+              - generic [aria-hidden] [ref=f3e130]: ⚡
+              - heading "Tracer Thunderbolt" [level=3] [ref=f3e131]
+              - paragraph [aria-hidden] [ref=f3e132]: Tracer Thunderbolt — toys
+              - paragraph [ref=f3e133]: $49.99
+              - button "Add to cart" [ref=f3e134] [cursor=pointer]
+            - generic [ref=f3e135]:
+              - generic [aria-hidden] [ref=f3e136]: 🐦
+              - heading "Mock Mockingbird" [level=3] [ref=f3e137]
+              - paragraph [aria-hidden] [ref=f3e138]: Mock Mockingbird — plushies
+              - paragraph [ref=f3e139]: $31.00
+              - button "Add to cart" [ref=f3e140] [cursor=pointer]
+            - generic [ref=f3e141]:
+              - generic [aria-hidden] [ref=f3e142]: 🧦
+              - heading "Selector Socks" [level=3] [ref=f3e143]
+              - paragraph [aria-hidden] [ref=f3e144]: Selector Socks — apparel
+              - paragraph [ref=f3e145]: $8.50
+              - button "Add to cart" [ref=f3e146] [cursor=pointer]
+            - generic [ref=f3e147]:
+              - generic [aria-hidden] [ref=f3e148]: 🐰
+              - heading "Retry Rabbit" [level=3] [ref=f3e149]
+              - paragraph [aria-hidden] [ref=f3e150]: Retry Rabbit — plushies
+              - paragraph [ref=f3e151]: $22.00
+              - button "Add to cart" [ref=f3e152] [cursor=pointer]
+            - generic [ref=f3e153]:
+              - generic [aria-hidden] [ref=f3e154]: 🧢
+              - heading "Coverage Cap" [level=3] [ref=f3e155]
+              - paragraph [aria-hidden] [ref=f3e156]: Coverage Cap — apparel
+              - paragraph [ref=f3e157]: $15.00
+              - button "Add to cart" [ref=f3e158] [cursor=pointer]
+  - contentinfo [ref=f3e87]: Playwright Practice Hub — a deliberately testable app for Test Automation Engineers. Challenges stay solvable because every one ships with a reference test that runs in CI.
+  - status [ref=f3e159]:
+    - generic [ref=f3e162]: Locator Lens added to cart
