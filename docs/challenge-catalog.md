@@ -1,6 +1,6 @@
 # Challenge catalog
 
-All 39 challenges, their routes, and the Playwright concepts they exercise.
+All 46 challenges, their routes, and the Playwright concepts they exercise.
 Reference tests live in `examples/` at the path shown in each challenge page.
 
 ## Basic track — foundations
@@ -62,6 +62,18 @@ Reference tests live in `examples/` at the path shown in each challenge page.
 | 38 | Network Surgery | `/expert/network-surgery` | route.fetch + fulfill patching, { times }, route.fallback, LIFO | `examples/expert/network-surgery.spec.ts` |
 | 39 | Worker-Scoped Fixtures | `/expert/worker-fixtures` | test.extend, scope:'worker', auto fixtures, workerIndex | `examples/expert/worker-fixtures.spec.ts` |
 
+## Real World track — the job itself
+
+| # | Challenge | Route | Concepts | Reference test |
+|---|---|---|---|---|
+| 40 | Analytics & Tracking Verification | `/real-world/analytics` | page.on('request'), waitForRequest, exposeBinding, event payloads | `examples/real-world/analytics.spec.ts` |
+| 41 | Multi-User Contexts | `/real-world/multi-user` | browser.newContext, session isolation, addInitScript, cross-context delivery | `examples/real-world/multi-user.spec.ts` |
+| 42 | Keyboard Navigation & Focus | `/real-world/keyboard-nav` | toBeFocused, keyboard.press, focus traps, roving tabindex, skip links | `examples/real-world/keyboard-nav.spec.ts` |
+| 43 | Custom Matchers & Soft Assertions | `/real-world/custom-assertions` | expect.extend, expect.soft, assertion design | `examples/real-world/custom-assertions.spec.ts` |
+| 44 | Performance Smoke Testing | `/real-world/performance-smoke` | Performance API via evaluate, budgets, page.metrics() | `examples/real-world/performance-smoke.spec.ts` |
+| 45 | Kata: Fix This Bad Test | `/real-world/refactor-kata` | test smells, sleeps → auto-waiting, locator strategy | `examples/real-world/refactor-kata.spec.ts` (bad original: `examples/real-world/kata/`) |
+| 46 | Config Layering & Environments | `/real-world/config-layering` | layered configs, env matrix, annotations, process.env, feature flags | `examples/real-world/config-layering.spec.ts` |
+
 ## Concept coverage map
 
 | Playwright docs area | Challenges |
@@ -86,4 +98,10 @@ Reference tests live in `examples/` at the path shown in each challenge page.
 | Flakiness & retries | 7, 29, 31, 35 (+ Chaos Mode anywhere) |
 | Setup projects & auth architecture | 19, 33 |
 | HAR | 21, 34 |
-| Modern assertions & locators | 4, 28, 38 |
+| Modern assertions & locators | 4, 28, 38, 43 |
+| Analytics / event capture | 40 |
+| Multi-user / multi-context | 41 |
+| Keyboard a11y | 42 |
+| Performance testing | 44 |
+| Test review & refactoring | 45 |
+| Config & environments | 46 |

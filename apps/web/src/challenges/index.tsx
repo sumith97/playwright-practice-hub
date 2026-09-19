@@ -43,6 +43,14 @@ import StepsAttachments, { meta as e05 } from './expert/StepsAttachments';
 import NetworkSurgery, { meta as e06 } from './expert/NetworkSurgery';
 import WorkerFixtures, { meta as e07 } from './expert/WorkerFixtures';
 
+import Analytics, { meta as r01 } from './real-world/Analytics';
+import MultiUser, { meta as r02 } from './real-world/MultiUser';
+import KeyboardNav, { meta as r03 } from './real-world/KeyboardNav';
+import CustomAssertions, { meta as r04 } from './real-world/CustomAssertions';
+import Performance, { meta as r05 } from './real-world/Performance';
+import RefactorKata, { meta as r06 } from './real-world/RefactorKata';
+import ConfigLayering, { meta as r07 } from './real-world/ConfigLayering';
+
 export const CHALLENGES: ChallengeMeta[] = [
   { ...m01, component: LocatorGym },
   { ...m02, component: ActionsPlayground },
@@ -86,6 +94,14 @@ export const CHALLENGES: ChallengeMeta[] = [
   { ...e05, component: StepsAttachments },
   { ...e06, component: NetworkSurgery },
   { ...e07, component: WorkerFixtures },
+
+  { ...r01, component: Analytics },
+  { ...r02, component: MultiUser },
+  { ...r03, component: KeyboardNav },
+  { ...r04, component: CustomAssertions },
+  { ...r05, component: Performance },
+  { ...r06, component: RefactorKata },
+  { ...r07, component: ConfigLayering },
 ];
 
 export const CHALLENGE_COUNT = CHALLENGES.length;

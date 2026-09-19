@@ -161,6 +161,24 @@ export function registerRoutes(app: FastifyInstance): void {
     uptimeSec: Math.round(process.uptime()),
   }));
 
+  // ---- Analytics beacons (Real World track) ----------------------------------
+  app.post('/api/analytics', async (request, reply) => {
+    const { event, props } = (request.body ?? {}) as { event?: string; props?: Record<string, unknown> };
+    if (!event?.trim()) return reply.code(400).send({ error: 'An "event" name is required' });
+    store.analytics.push({ event: event.trim(), props: props ?? {}, ts: Date.now() });
+    return { ok: true, received: store.analytics.length };
+  });
+
+  app.get('/api/analytics', async () => ({ events: store.analytics.slice(-50) }));
+
+  // ---- Performance practice asset (Real World track) -------------------------
+  app.get('/api/perf/asset', async (_request, reply) => {
+    reply
+      .header('Content-Type', 'image/svg+xml')
+      .header('Cache-Control', 'no-store');
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="60"><rect width="120" height="60" fill="#4f46e5" rx="8"/><circle cx="35" cy="30" r="12" fill="#fff"/><rect x="55" y="22" width="50" height="16" fill="#fff" rx="4"/></svg>';
+  });
+
   // ---- Reservations (parallelism practice) ----------------------------------
   app.post('/api/reserve/:id', async (request, reply) => {
     const { id } = request.params as { id: string };

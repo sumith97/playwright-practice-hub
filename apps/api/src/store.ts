@@ -41,6 +41,12 @@ export interface StoredFile {
   content: Buffer;
 }
 
+export interface AnalyticsEvent {
+  event: string;
+  props: Record<string, unknown>;
+  ts: number;
+}
+
 export const seedArticles: Article[] = [
   { id: 'a-1', title: 'Why auto-waiting changed E2E testing', body: 'Playwright waits for elements to be visible, stable and enabled before acting. No more arbitrary sleeps.', tags: ['auto-wait', 'basics'] },
   { id: 'a-2', title: 'Locators: role-first thinking', body: 'Prefer user-facing locators like getByRole over brittle CSS selectors. They mirror how users find things.', tags: ['locators', 'basics'] },
@@ -69,6 +75,7 @@ export interface Store {
   flakyAttempts: number;
   reservations: Set<string>;
   rateBuckets: Map<string, { count: number; resetAt: number }>;
+  analytics: AnalyticsEvent[];
 }
 
 export function createStore(): Store {
@@ -81,6 +88,7 @@ export function createStore(): Store {
     flakyAttempts: 0,
     reservations: new Set(),
     rateBuckets: new Map(),
+    analytics: [],
   };
 }
 

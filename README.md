@@ -9,7 +9,7 @@ Every challenge page states the task, lists the Playwright concepts it teaches, 
 
 ## What makes it different
 
-- **39 challenges across 4 tracks** — basic, intermediate, advanced and expert — mapped explicitly to the official Playwright feature surface (locators, auto-wait, `page.route`, `storageState`, `page.clock`, tracing, sharding, `addLocatorHandler`, HAR…).
+- **46 challenges across 5 tracks** — basic, intermediate, advanced, expert and real-world — mapped explicitly to the official Playwright feature surface (locators, auto-wait, `page.route`, `storageState`, `page.clock`, tracing, sharding, `addLocatorHandler`, HAR…).
 - **A real backend** (Fastify): practice `request`-fixture API testing, JWT auth with MFA, uploads/downloads, WebSockets and SSE — not just UI clicks.
 - **Chaos Mode**: a global toggle that injects latency and DOM re-mounts so you learn to write tests that survive real-world flakiness.
 - **Progress tracking** in localStorage — which is itself a storage-assertion challenge.
@@ -73,6 +73,9 @@ Auth & sessions (JWT + MFA + `storageState`) · API testing (`request` fixture, 
 
 ### 🟣 Expert — modern Playwright (7)
 **Setup project & `storageState`** (the canonical auth architecture, wired into this repo's config) · HAR record & replay · Overlay clinic (`page.addLocatorHandler`) · Console & page-error monitoring (auto fixture policy) · `test.step`, attachments & programmatic tracing · Network surgery (`route.fetch` patching, `{ times }`, `route.fallback`) · Worker-scoped fixtures & parallel-safe data.
+
+### 🔵 Real World — the job itself (7)
+**Analytics & tracking verification** (network spies + `exposeBinding`) · **Multi-user contexts** (two browser identities talking live) · **Keyboard navigation & focus** (skip links, roving tabs, modal traps) · **Custom matchers & soft assertions** (`expect.extend`) · **Performance smoke testing** (budgets, resource entries, `page.metrics()`) · **Kata: fix this bad test** (a deliberately awful suite to refactor) · **Config layering & environments** (feature-flag matrices, annotations, layered configs — see `playwright.smoke.config.ts`).
 
 See [`docs/challenge-catalog.md`](docs/challenge-catalog.md) for the full table with links, [`docs/api-reference.md`](docs/api-reference.md) for endpoint details, and [`docs/architecture.md`](docs/architecture.md) for Mermaid diagrams of the system.
 

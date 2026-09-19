@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test';
 
 /**
  * Every browser project runs this file against the SAME server, so slot ids
- * are prefixed with the project name — unique test data is the golden rule
- * of parallel-safe suites.
+ * are prefixed with the project name AND a per-run suffix — unique test data
+ * is the golden rule of parallel-safe suites (and of re-runnable suites:
+ * reservations persist in the API server between local runs).
  */
+const RUN_ID = Date.now().toString(36);
 const SLOTS = ['S-1', 'S-2', 'S-3', 'S-4', 'S-5', 'S-6', 'S-7', 'S-8', 'S-9', 'S-10', 'S-11', 'S-12'];
 
 test.describe('Advanced · Parallelism & Control', () => {
@@ -13,14 +15,14 @@ test.describe('Advanced · Parallelism & Control', () => {
   for (const slot of SLOTS) {
     test(`reserve ${slot} @smoke`, async ({ request }) => {
       const project = test.info().project.name;
-      const res = await request.post(`/api/reserve/${project}-${slot}`);
+      const res = await request.post(`/api/reserve/${project}-${RUN_ID}-${slot}`);
       expect(res.status()).toBe(201);
-      expect(await res.json()).toMatchObject({ id: `${project}-${slot}`, status: 'reserved' });
+      expect(await res.json()).toMatchObject({ id: `${project}-${RUN_ID}-${slot}`, status: 'reserved' });
     });
   }
 
   test('second reservation of the same slot conflicts', async ({ request }) => {
-    const id = `${test.info().project.name}-S-99`;
+    const id = `${test.info().project.name}-${RUN_ID}-S-99`;
 
     const first = await request.post(`/api/reserve/${id}`);
     expect(first.status()).toBe(201);
