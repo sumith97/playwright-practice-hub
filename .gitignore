@@ -10,3 +10,5 @@ examples/expert/.auth/
 .env
 .DS_Store
 .zcode/
+.playwright-mcp/
+mcp-*.png
